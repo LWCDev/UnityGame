@@ -5,9 +5,24 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/MainMenu.unity
+  - enabled: 0
+    path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/TutorialMenu.unity
-    guid: 00000000000000000000000000000000
+    path: Assets/Scenes/Main Menu/MainMenu.unity
+    guid: 9eeed42fceea44346b60c3a64c01b199
+  - enabled: 1
+    path: Assets/Scenes/Main Menu/LoadGame.unity
+    guid: 200a1a8ba220a894d90d5f5e9867a8ce
+  - enabled: 1
+    path: Assets/Scenes/Main Menu/Options.unity
+    guid: 1781d0838c859574892a7900730bcbdb
+  - enabled: 1
+    path: Assets/Scenes/Main Menu/TutorialMenu.unity
+    guid: b751dd4d2b9b20e42bd528e56ad9e459
+  - enabled: 0
+    path: Assets/Scenes/Base Layer/Default Base.unity
+    guid: 8b8d3c2354c0ba142b740ffc7f14cf9d
+  - enabled: 1
+    path: Assets/Scenes/Base Layer/DefaultGeoscape.unity
+    guid: b3f174d7418c53f489c50e26190d4e37

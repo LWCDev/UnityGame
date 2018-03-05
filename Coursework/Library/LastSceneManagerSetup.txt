@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/LoadGame.unity
+- path: Assets/Scenes/Base Layer/DefaultGeoscape.unity
   isLoaded: 1
   isActive: 1

@@ -32,12 +32,7 @@ public class MissionMaker : MonoBehaviour {
         //print(Day);
         //print(Hours);
         //print(Minutes);
-        int RandX = Random.Range(-480, 170);
-        int RandY = Random.Range(-155, 155);
-        print(RandX);
-        print(RandY);
-        float xLoc = RandX;
-        float yLoc = RandY;
+        
         //UFOImage.transform.position = new Vector3(xLoc, yLoc, 0);
         //AbductionImage.transform.position = new Vector3(xLoc, yLoc, 0);
         //UFOImage.transform.position = new Vector3(0, 0, 0);
@@ -124,19 +119,141 @@ public class MissionMaker : MonoBehaviour {
             //int RandY = Random.Range(-155, 155);
             //print(RandX);
             //print(RandY);
-            UFOImage.transform.localScale = new Vector3(1, 1, 1);
-            UFOImage.transform.position = new Vector3(0,0,0);
+            //UFOImage.transform.localScale = new Vector3(1, 1, 1);
+            int RandX = Random.Range(-480, 170);
+            int RandY = Random.Range(-155, 155);
+            //print(RandX);
+            //print(RandY);
+            float xLoc = RandX;
+            float yLoc = RandY;
+            UFOImage.transform.localPosition = new Vector3(xLoc,yLoc,0);
             
         }
         else
         {
-            TextObject.text = "Alien activtity detected! Abduction in progress!";
+            
             //int RandX = Random.Range(-480, 170);
             //int RandY = Random.Range(-155, 155);
+            float xLoc;
+            float yLoc;
+            string Country; 
+            int RandC = Random.Range(1, 12);
+            if (RandC == 1)
+            {
+                //China
+                xLoc = 41;
+                yLoc = 66;
+                Country = "China";
+                AbductionImage.transform.localPosition = new Vector3(xLoc, yLoc, 0f);
+                TextObject.text = "Alien activtity detected! Abduction in progress in " + Country + "!" ;
+            }
+            if (RandC == 2)
+            {
+                //UK
+                xLoc = 160;
+                yLoc = 101;
+                Country = "UK";
+                AbductionImage.transform.localPosition = new Vector3(xLoc, yLoc, 0f);
+                TextObject.text = "Alien activtity detected! Abduction in progress in " + Country + "!";
+            }
+            if (RandC == 3)
+            {
+                //Australia
+                xLoc = 94;
+                yLoc = -37;
+                Country = "Australia";
+                AbductionImage.transform.localPosition = new Vector3(xLoc, yLoc, 0f);
+                TextObject.text = "Alien activtity detected! Abduction in progress in " + Country + "!";
+            }
+            if (RandC == 4)
+            {
+                //USA
+                xLoc = -332;
+                yLoc = 72;
+                Country = "USA";
+                AbductionImage.transform.localPosition = new Vector3(xLoc, yLoc, 0f);
+                TextObject.text = "Alien activtity detected! Abduction in progress in " + Country + "!";
+            }
+            if (RandC == 5)
+            {
+                //Canada
+                xLoc = -361;
+                yLoc = 108;
+                Country = "Canada";
+                AbductionImage.transform.localPosition = new Vector3(xLoc, yLoc, 0f);
+                TextObject.text = "Alien activtity detected! Abduction in progress in " + Country + "!";
+            }
+            if (RandC == 6)
+            {
+                //Germany
+                xLoc = -136;
+                yLoc = 95;
+                Country = "Germany";
+                AbductionImage.transform.localPosition = new Vector3(xLoc, yLoc, 0f);
+                TextObject.text = "Alien activtity detected! Abduction in progress in " + Country + "!";
+            }
+            if (RandC == 7)
+            {
+                //France
+                xLoc = -152;
+                yLoc = 87;
+                Country = "France";
+                AbductionImage.transform.localPosition = new Vector3(xLoc, yLoc, 0f);
+                TextObject.text = "Alien activtity detected! Abduction in progress in " + Country + "!";
+            }
+            if (RandC == 8)
+            {
+                //Mexico
+                xLoc = -347;
+                yLoc = 48;
+                Country = "Mexico";
+                AbductionImage.transform.localPosition = new Vector3(xLoc, yLoc, 0f);
+                TextObject.text = "Alien activtity detected! Abduction in progress in " + Country + "!";
+            }
+            if (RandC == 9)
+            {
+                //Japan
+                xLoc = 105;
+                yLoc = 70;
+                Country = "Japan";
+                AbductionImage.transform.localPosition = new Vector3(xLoc, yLoc, 0f);
+                TextObject.text = "Alien activtity detected! Abduction in progress in " + Country + "!";
+            }
+            if (RandC == 10)
+            {
+                //South Korea
+                xLoc = 85;
+                yLoc = 73;
+                Country = "South Korea";
+                AbductionImage.transform.localPosition = new Vector3(xLoc, yLoc, 0f);
+                TextObject.text = "Alien activtity detected! Abduction in progress in " + Country + "!";
+            }
+            if (RandC == 11)
+            {
+                //Italy
+                xLoc = -133;
+                yLoc = 80;
+                Country = "Italy";
+                AbductionImage.transform.localPosition = new Vector3(xLoc, yLoc, 0f);
+                TextObject.text = "Alien activtity detected! Abduction in progress in " + Country + "!";
+            }
+            if (RandC == 12)
+            {
+                //Egypt
+                xLoc = -100;
+                yLoc = 51;
+                Country = "Egypt";
+                AbductionImage.transform.localPosition = new Vector3(xLoc, yLoc, 0f);
+                TextObject.text = "Alien activtity detected! Abduction in progress in " + Country + "!";
+            }
             //print(RandX);
             //print(RandY);
-            AbductionImage.transform.localScale = new Vector3(1, 1, 1);
-            AbductionImage.transform.position = new Vector3(0, 0, 0);
+            //float xLoc = RandX;
+            //float yLoc = RandY;
+            //AbductionImage.transform.localScale = new Vector3(1, 1, 1);
+
+            //Transform Canvas1 = Camera.transform.GetChild(0);
+            //AbductionImage.transform.parent = Canvas1.transform;
             
         }
         Camera cam = Camera.GetComponent<Camera>();

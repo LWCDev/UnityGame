@@ -137,6 +137,45 @@ public class TimeRecorder : MonoBehaviour {
         if (seconds >= 60){
             minutes = minutes + 1;
             seconds = 0f;
+            int rand1 = Random.Range(1, 4);
+            //UP or DOWN
+            print(rand1);
+            
+            //LEFT or RIGHT
+            if (rand1 == 1)
+            {
+                //Makes the UFO travel up
+                AlsoScript.UFOImage.transform.Translate(Vector3.up * 10 * Time.deltaTime);
+                if (AlsoScript.UFOImage.transform.localPosition.y > 155 || AlsoScript.UFOImage.transform.localPosition.y < -155)
+                {
+                    AlsoScript.UFOImage.transform.Translate(-Vector3.up * 10 * Time.deltaTime);
+                    //Prevents the UFO leaving boundaries
+                }
+            }
+            if (rand1 == 2)
+            {
+                //Makes the UFO travel downwards
+                AlsoScript.UFOImage.transform.Translate(-Vector3.up * 10 * Time.deltaTime);
+                if(AlsoScript.UFOImage.transform.localPosition.y > 155 || AlsoScript.UFOImage.transform.localPosition.y < -155)
+                {
+                    AlsoScript.UFOImage.transform.Translate(Vector3.up * 10 * Time.deltaTime);
+                    //Prevents the UFO leaving boundaries
+                }
+            }
+            if (rand1 == 3)
+            {
+                AlsoScript.UFOImage.transform.Translate(Vector3.right * 10 * Time.deltaTime);
+                if (AlsoScript.UFOImage.transform.localPosition.x > 170 || AlsoScript.UFOImage.transform.localPosition.x < -483)
+                {
+                    AlsoScript.UFOImage.transform.Translate(-Vector3.right * 10 * Time.deltaTime);
+                    //Prevents the UFO leaving boundaries
+                }
+            }
+            else
+            {
+                AlsoScript.UFOImage.transform.Translate(-Vector3.right * 10 * Time.deltaTime);
+            }
+
             //print(seconds);
             //print(minutes);
             //print(hours);
@@ -155,6 +194,7 @@ public class TimeRecorder : MonoBehaviour {
             hours = 0;
             //AlsoScript.counter = AlsoScript.counter + 1;
             //AlsoScript.Update();
+            AlsoScript.AbductionImage.transform.localPosition = new Vector3(1000f, 1000f, 0f);
         }
         if (days == 29)
         {

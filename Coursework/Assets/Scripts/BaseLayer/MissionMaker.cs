@@ -6,8 +6,9 @@ using UnityEngine.EventSystems;
 
 public class MissionMaker : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    
+    void Start () {
         
 	}
     public static int Day;
@@ -23,7 +24,23 @@ public class MissionMaker : MonoBehaviour {
     //int FlagForFound = 0;
     int counter;
     public List<int> FoundDays;
+    // static System.Random rnd = new System.Random();
     // Update is called once per frame
+    public static class IntUtil
+    {
+        private static System.Random random;
+
+        private static void Init()
+        {
+            if (random == null) random = new System.Random();
+        }
+
+        public static int Random(int min, int max)
+        {
+            Init();
+            return random.Next(min, max);
+        }
+    }
     public void Update () {
         
         Day = TimeRecorder.days;
@@ -50,7 +67,7 @@ public class MissionMaker : MonoBehaviour {
                 if (Day == 5 || Day == 10 || Day == 15 || Day == 20 || Day == 25)
                 {
 
-                    int chance = Random.Range(1, 10);
+                    int chance = IntUtil.Random(1, 10);
                     print(chance);
                     if (chance <= 4)
                     
@@ -120,8 +137,8 @@ public class MissionMaker : MonoBehaviour {
             //print(RandX);
             //print(RandY);
             //UFOImage.transform.localScale = new Vector3(1, 1, 1);
-            int RandX = Random.Range(-480, 170);
-            int RandY = Random.Range(-155, 155);
+            int RandX = IntUtil.Random(-480, 170);
+            int RandY = IntUtil.Random(-155, 155);
             //print(RandX);
             //print(RandY);
             float xLoc = RandX;
@@ -136,8 +153,9 @@ public class MissionMaker : MonoBehaviour {
             //int RandY = Random.Range(-155, 155);
             float xLoc;
             float yLoc;
-            string Country; 
-            int RandC = Random.Range(1, 12);
+            string Country;
+            int RandC = IntUtil.Random(0, 11);
+            print("This is RandC " +RandC);
             if (RandC == 1)
             {
                 //China
@@ -150,7 +168,7 @@ public class MissionMaker : MonoBehaviour {
             if (RandC == 2)
             {
                 //UK
-                xLoc = 160;
+                xLoc = -160;
                 yLoc = 101;
                 Country = "UK";
                 AbductionImage.transform.localPosition = new Vector3(xLoc, yLoc, 0f);
@@ -237,7 +255,7 @@ public class MissionMaker : MonoBehaviour {
                 AbductionImage.transform.localPosition = new Vector3(xLoc, yLoc, 0f);
                 TextObject.text = "Alien activtity detected! Abduction in progress in " + Country + "!";
             }
-            if (RandC == 12)
+            if (RandC == 0)
             {
                 //Egypt
                 xLoc = -100;

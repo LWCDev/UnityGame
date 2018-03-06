@@ -40,6 +40,22 @@ public class TimeRecorder : MonoBehaviour {
     string[] monthList = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
     int monthIndex;
     // Use this for initialization
+    //static System.Random rnd = new System.Random();
+    public static class IntUtil
+    {
+        private static System.Random random;
+
+        private static void Init()
+        {
+            if (random == null) random = new System.Random();
+        }
+
+        public static int Random(int min, int max)
+        {
+            Init();
+            return random.Next(min, max);
+        }
+    }
     void Start () {
         years = 2020;
         days = 1;
@@ -134,48 +150,57 @@ public class TimeRecorder : MonoBehaviour {
         //print("This is the multiplier being passed to function: " +multiplier);
         //print(Time.deltaTime);
         //print(seconds.ToString("N0")); 
+        
         if (seconds >= 60){
             minutes = minutes + 1;
             seconds = 0f;
-            int rand1 = Random.Range(1, 4);
+            int rand1 = IntUtil.Random(0,3);
             //UP or DOWN
             print(rand1);
-            
+            //int rand2 = IntUtil.Random(5,6);
+            float yPos = AlsoScript.UFOImage.transform.localPosition.y;
+            //print(rand2);
             //LEFT or RIGHT
-            if (rand1 == 1)
+            if (rand1 == 0)
             {
                 //Makes the UFO travel up
-                AlsoScript.UFOImage.transform.Translate(Vector3.up * 10 * Time.deltaTime);
+                AlsoScript.UFOImage.transform.Translate(Vector3.up * 5 * Time.deltaTime);
                 if (AlsoScript.UFOImage.transform.localPosition.y > 155 || AlsoScript.UFOImage.transform.localPosition.y < -155)
                 {
-                    AlsoScript.UFOImage.transform.Translate(-Vector3.up * 10 * Time.deltaTime);
+                    AlsoScript.UFOImage.transform.Translate(-Vector3.up * 5 * Time.deltaTime);
+                    //Prevents the UFO leaving boundaries
+                }
+            }
+            if (rand1 == 1)
+            {
+                //Makes the UFO travel downwards
+                AlsoScript.UFOImage.transform.Translate(-Vector3.up * 5 * Time.deltaTime);
+                if(AlsoScript.UFOImage.transform.localPosition.y > 155 || AlsoScript.UFOImage.transform.localPosition.y < -155)
+                {
+                    AlsoScript.UFOImage.transform.Translate(Vector3.up * 5 * Time.deltaTime);
                     //Prevents the UFO leaving boundaries
                 }
             }
             if (rand1 == 2)
             {
-                //Makes the UFO travel downwards
-                AlsoScript.UFOImage.transform.Translate(-Vector3.up * 10 * Time.deltaTime);
-                if(AlsoScript.UFOImage.transform.localPosition.y > 155 || AlsoScript.UFOImage.transform.localPosition.y < -155)
-                {
-                    AlsoScript.UFOImage.transform.Translate(Vector3.up * 10 * Time.deltaTime);
-                    //Prevents the UFO leaving boundaries
-                }
+                AlsoScript.UFOImage.transform.Translate(Vector3.right * 5 * Time.deltaTime);
+                
             }
-            if (rand1 == 3)
+            else 
             {
-                AlsoScript.UFOImage.transform.Translate(Vector3.right * 10 * Time.deltaTime);
-                if (AlsoScript.UFOImage.transform.localPosition.x > 170 || AlsoScript.UFOImage.transform.localPosition.x < -483)
-                {
-                    AlsoScript.UFOImage.transform.Translate(-Vector3.right * 10 * Time.deltaTime);
-                    //Prevents the UFO leaving boundaries
-                }
+                AlsoScript.UFOImage.transform.Translate(-Vector3.right * 5 * Time.deltaTime);
+                
             }
-            else
+            if (AlsoScript.UFOImage.transform.localPosition.x > 170)
             {
-                AlsoScript.UFOImage.transform.Translate(-Vector3.right * 10 * Time.deltaTime);
+                AlsoScript.UFOImage.transform.localPosition = new Vector3(-483, yPos, 0);
+                //Prevents the UFO leaving boundaries
             }
-
+            if (AlsoScript.UFOImage.transform.localPosition.x < -483)
+            {
+                AlsoScript.UFOImage.transform.localPosition = new Vector3(170, yPos, 0); ;
+                //Prevents the UFO leaving boundaries
+            }
             //print(seconds);
             //print(minutes);
             //print(hours);
